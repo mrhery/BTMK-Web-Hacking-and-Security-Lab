@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2023 at 03:25 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Sep 02, 2023 at 10:28 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `druddb`
+-- Database: `cruddb`
 --
 
 -- --------------------------------------------------------
@@ -43,7 +43,7 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`i_id`, `i_name`, `i_description`, `i_date`, `i_picture`, `i_price`, `i_colors`, `i_url`) VALUES
-(2, 'item asdasdadasd', 'item asdasdadasd', '2023-08-08', '64d23d21b31ab-Picture8.png', 1000, 'red,blue,yellow', 'https://ww4.fmovies.co/film/meg-2-the-trench-1630855563/'),
+(2, 'item asdasdadasd', 'item asdasdadasd', '2023-09-02', '64d23d21b31ab-Picture8.png', 1000, 'red,blue,yellow', 'https://ww4.fmovies.co/film/meg-2-the-trench-1630855563/'),
 (3, 'Item 3', 'Item 3', '2023-08-08', '64d23d2ddd9ea-Picture8.png', 10000, 'blue,yellow,green', 'x.mp4'),
 (5, 'Item 5', 'Item 5', '2023-08-08', '64d23d39867bc-Picture8.png', 1000, 'red,blue,yellow', ''),
 (6, 'item 6', '', '2023-08-08', '64d23e0a7dc8b-Picture8.png', 123, '', ''),
@@ -51,6 +51,26 @@ INSERT INTO `items` (`i_id`, `i_name`, `i_description`, `i_date`, `i_picture`, `
 (8, 'item 8', '', '2023-08-08', '64d23e19a44f9-Picture8.png', 0, '', ''),
 (9, 'item 9', '', '2023-08-08', '64d23e2287d6c-Picture8.png', 0, '', ''),
 (10, 'item 10', '', '2023-08-08', '64d23e30d6ba8-Picture8.png', 0, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'test', '1234'),
+(2, 'admin', '1234');
 
 --
 -- Indexes for dumped tables
@@ -63,6 +83,12 @@ ALTER TABLE `items`
   ADD PRIMARY KEY (`i_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -71,6 +97,12 @@ ALTER TABLE `items`
 --
 ALTER TABLE `items`
   MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
